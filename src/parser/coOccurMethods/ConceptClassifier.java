@@ -39,11 +39,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import parser.CFGParser4Header;
-import parser.ParseState;
-import parser.RuleBasedParser;
-import parser.SimpleParser;
-import parser.UnitSpan;
+import parser.*;
 
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
@@ -116,7 +112,7 @@ public class ConceptClassifier implements ConceptTypeScores,Co_occurrenceScores,
     this(configs,quantDict,false,parser);
     InputStream istr=null;
     if (loadFile==null) {
-      istr = ClassLoader.class.getResourceAsStream("/"+ConceptClassifier.ClassifierFile);
+      istr = ConfigLoader.getResourceStream(ConceptClassifier.ClassifierFile);
     } else {
       istr = new FileInputStream(loadFile);
     }
